@@ -76,9 +76,9 @@ local function SendWebhook(EXECUTOR_NAME)
         end)
 
         if success then
-            print("[SecretClub] ✅ Webhook sent!")
+           -- print("[SecretClub] ✅ Webhook sent!")
         else
-            warn("[SecretClub] ❌ Webhook failed: " .. tostring(err))
+           -- warn("[SecretClub] ❌ Webhook failed: " .. tostring(err))
         end
     end)
 end
