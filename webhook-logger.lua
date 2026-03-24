@@ -33,6 +33,11 @@ local function SendWebhook(EXECUTOR_NAME)
         elseif ping < 200 then serverRegion = "🌏 International"
         end
 
+        local hwid = "Unknown"
+        pcall(function()
+            hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+        end)
+
         local placeId  = game.PlaceId
         local jobId    = game.JobId
         local gameName = "Unknown"
@@ -59,6 +64,7 @@ local function SendWebhook(EXECUTOR_NAME)
                 { name = "🕐 Execution Time", inline = true,
                   value = string.format("**Date:** %s\n**Time:** %s (UTC)", currentDate, currentTime) },
                 { name = "🔗 Job ID", value = string.format("```%s```", jobId), inline = false },
+                { name = "🔑 HWID", value = string.format("```%s```", hwid), inline = false },
             },
             footer    = { text = "SecretClub Webhook Logger" },
             timestamp = timestamp
